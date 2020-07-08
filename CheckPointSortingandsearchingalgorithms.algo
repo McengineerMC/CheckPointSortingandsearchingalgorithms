@@ -1,0 +1,17 @@
+PROCEDURE insertion_sort(VAR arr: ARRAY_OF INTEGER,VAR n : INTEGER)
+VAR
+    k,i,j : INTEGER;
+BEGIN
+    FOR i FROM 1 TO n-1 STEP 1  DO
+//mémoriser arr[i] dans k
+        k := arr[i];
+//décaler vers la droite les éléments(arr[i]...arr[i-1]) qui sont plus grands que k
+        j := i;
+        WHILE (j > 0 and arr[j-1]> k) DO
+            arr[j] := arr[j-1];
+            j := j-1;
+        END_WHILE
+//placer k dans le "trou" laissé par le décalage
+        arr[j] := k;
+    END_FOR
+END
